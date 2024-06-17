@@ -82,16 +82,17 @@ endif
 syntax enable
 colorscheme dracula
 
+
 """""""""""""""""""""""""
-" Config
+" Config                "
 """""""""""""""""""""""""
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching bracket
 set ignorecase              " case insensitive search
 set smartcase               " case sensitive search if search contain upper
-set mouse=av                 " middle-click paste with
 set hlsearch                " highlight search
 set incsearch               " incremental search
+set mouse=av                " middle-click paste with
 set tabstop=4               " number of columns occupied by a tab
 autocmd Filetype css setlocal tabstop=2
 autocmd Filetype vue setlocal tabstop=2
@@ -113,19 +114,21 @@ set clipboard=unnamedplus   " using system clipboard
 set cursorline              " highlight current cursorline
 set ttyfast                 " Speed up scrolling in Vim
 set spell                   " enable spell check (may need to download language package)
+" open new split panes to right and below
+set splitright
+set splitbelow
 set backup
 if !isdirectory($HOME."/.cache/vim")
     silent! execute "!mkdir -p /.cache/vim"
 endif
 set backupdir=~/.cache/vim " Directory to store backup files.
-" open new split panes to right and below
-set splitright
-set splitbelow
 
 
 """""""""""""""""""""""""
 " Keymapping
 """""""""""""""""""""""""
+
+" COC
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -137,10 +140,12 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>' 
-" NERD Tree Key mapping
+let g:coc_snippet_next = '<tab>'
+
+" NERD Tree
 nnoremap <silent> <C-a> :exec 'NERDTreeToggle' <CR>
 nmap  <Leader>r :NERDTreeRefreshRoot <CR>
+
 " Buffer
 nnoremap <Leader>[ :bprevious<CR>
 nnoremap <Leader>] :bnext<CR>
@@ -154,15 +159,13 @@ nnoremap <Leader>7 :bfirst<CR>:6bn<CR>
 nnoremap <Leader>8 :bfirst<CR>:7bn<CR>
 nnoremap <Leader>9 :blast<CR>
 nnoremap <Leader>w :bd<CR>
+
 " Comment
 map <C-_> <Leader>c<space>
-" Move line
-vmap <C-j> <Plug>MoveBlockDown
-vmap <C-k> <Plug>MoveBlockUp
-nmap <C-j> <Plug>MoveLineDown
-nmap <C-k> <Plug>MoveLineUp
+
 " Global Search in cwd
 nnoremap <C-f> :Ack!<Space>
+
 " Ctrl p
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
