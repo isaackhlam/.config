@@ -24,20 +24,16 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
 " Git Diff
 Plug 'airblade/vim-gitgutter'
-" Auto closing html
-Plug 'alvan/vim-closetag'
 " color code background
 Plug 'ap/vim-css-color'
 " MD preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-" Syntax Check
-Plug 'scrooloose/syntastic'
 " CSV file
 Plug 'chrisbra/csv.vim'
-" Import cost
-Plug 'yardnsm/vim-import-cost'  
 " White Space
 Plug 'ntpeters/vim-better-whitespace'
+" Highlight Indent
+Plug 'preservim/vim-indent-guides'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Theme
