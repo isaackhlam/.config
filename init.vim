@@ -64,12 +64,24 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-" Plugin Setting
 
+"""""""""""""""""""""""""
+" Theme Setting         "
+"""""""""""""""""""""""""
+
+" Airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='dracula'
 let g:airline#extensions#whitespace#enabled=1
+
+" color schemes
+if (has("termguicolors"))
+ set termguicolors
+endif
+syntax enable
+colorscheme dracula
+
 
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
@@ -103,14 +115,7 @@ set ttyfast                 " Speed up scrolling in Vim
 set spell                 " enable spell check (may need to download language package)
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
-
-" color schemes
- if (has("termguicolors"))
- set termguicolors
- endif
- syntax enable
-" colorscheme evenig
-colorscheme dracula " open new split panes to right and below
+" open new split panes to right and below
 set splitright
 set splitbelow
 
