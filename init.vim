@@ -1,43 +1,66 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
-
 " Declare the list of plugins.
+
+"""""""""""""""""""""""
+" Basic plugin        "
+"""""""""""""""""""""""
 Plug 'tpope/vim-sensible'
 Plug 'christoomey/vim-tmux-navigator'
+" Git Integrate
+Plug 'tpope/vim-fugitive'
+" Git Diff status on left gutter
+Plug 'airblade/vim-gitgutter'
+
+"""""""""""""""""""""""""
+" Beautify              "
+"""""""""""""""""""""""""
+" Start Screen
+Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
+" Theme
+Plug 'dracula/vim'
+
+"""""""""""""""""""""""""
+" File Related          "
+"""""""""""""""""""""""""
 " File management
 Plug 'scrooloose/nerdtree'
 " File Icon
 Plug 'ryanoasis/vim-devicons'
+
+"""""""""""""""""""""""""
+" Edit Related          "
+"""""""""""""""""""""""""
 " Comment
 Plug 'preservim/nerdcommenter'
-" Surround
-Plug 'tpope/vim-surround'
-" Snippest
-Plug 'SirVer/ultisnips'
-" Start Screen
-Plug 'mhinz/vim-startify'
 " Move line
 Plug 'matze/vim-move'
-" Global Search
-Plug 'mileszs/ack.vim'
-" Git Integrate
-Plug 'tpope/vim-fugitive'
-" Git Diff
-Plug 'airblade/vim-gitgutter'
+" White Space
+Plug 'ntpeters/vim-better-whitespace'
+" See indent
+Plug 'preservim/vim-indent-guides'
+" Surround
+Plug 'tpope/vim-surround'
 " color code background
 Plug 'ap/vim-css-color'
+
+"""""""""""""""""""""""""
+" Document Editing      "
+"""""""""""""""""""""""""
 " MD preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " CSV file
 Plug 'chrisbra/csv.vim'
-" White Space
-Plug 'ntpeters/vim-better-whitespace'
-" Highlight Indent
-Plug 'preservim/vim-indent-guides'
+
+"""""""""""""""""""""""""
+" Others                "
+"""""""""""""""""""""""""
+" Global Search
+Plug 'mileszs/ack.vim'
+" fuzzy search
 Plug 'ctrlpvim/ctrlp.vim'
+" Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Theme
-Plug 'dracula/vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -46,16 +69,15 @@ call plug#end()
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='dracula'
-let g:closetag_filenames='*.html,*.vue,*.php'
 let g:airline#extensions#whitespace#enabled=1
 
 set nocompatible            " disable compatibility to old-time vi
-set showmatch               " show matching 
-set ignorecase              " case insensitive 
-set mouse=v                 " middle-click paste with 
-set hlsearch                " highlight search 
+set showmatch               " show matching
+set ignorecase              " case insensitive
+set mouse=v                 " middle-click paste with
+set hlsearch                " highlight search
 set incsearch               " incremental search
-set tabstop=4               " number of columns occupied by a tab 
+set tabstop=4               " number of columns occupied by a tab
 autocmd Filetype css setlocal tabstop=2
 autocmd Filetype vue setlocal tabstop=2
 autocmd Filetype javascript setlocal tabstop=2
@@ -92,20 +114,6 @@ colorscheme dracula " open new split panes to right and below
 set splitright
 set splitbelow
 
-" use <tab> to trigger completion and navigate to the next complete item
-" https://github.com/SirVer/ultisnips/issues/1052
-let g:UltiSnipsExpandTrigger = "<nop>"
-" 
-" function! CheckBackspace() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-" 
-" inoremap <silent><expr> <Tab>
-"       \ coc#pum#visible() ? coc#pum#next(1) :
-"       \ CheckBackspace() ? "\<Tab>" :
-"       \ coc#refresh()
-  
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
