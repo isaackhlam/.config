@@ -115,6 +115,4 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # My alias and environment varible
-alias fda='fd -IH'
-alias rga='rg -uuu'
 
