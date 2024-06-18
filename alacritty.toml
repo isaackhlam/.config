@@ -1,0 +1,68 @@
+import = ["./dracula.toml"]
+
+[cursor]
+blink_interval = 750
+style = "Beam"
+thickness = 0.2
+unfocused_hollow = false
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 8
+
+[font.bold]
+family = "MesloLGS NF"
+style = "Bold"
+
+[font.bold_italic]
+family = "MesloLGS NF"
+style = "Bold Italic"
+
+[font.italic]
+family = "MesloLGS NF"
+style = "italic"
+
+[font.normal]
+family = "MesloLGS NF"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "C"
+mode = "Vi"
+mods = "Control"
+
+[[mouse.bindings]]
+action = "Paste"
+mouse = "Right"
+
+[scrolling]
+history = 50000
+multiplier = 3
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 0.8
+startup_mode = "Windowed"
+title = "Alacritty Terminal"
+
+[window.dimensions]
+columns = 110
+lines = 30
